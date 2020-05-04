@@ -66,22 +66,22 @@ acf(skf) #Der er stadig noget ugentlig s?son
 
 
 ### SARMA p? s?sonkorrigeret data
-sarima_model_AIC = Inf
-for (p in c(0,1,2,3,4)) for (q in c(0,1,2,3,4)) for (P in c(0,1,2,3,4)) for (Q in c(0,1,2,3,4)) {
-  sarima_model = tryCatch(sarima(xdata = skp, p, d=0, q, P, D=0, Q, S = 7, details = FALSE, Model = F), error = function(e) Inf)
-  if (is.recursive(sarima_model) == TRUE) {
-    sarima_model_AIC_now = sarima_model$AIC
-  }
-  if (is.recursive(sarima_model) == FALSE) {
-    sarima_model_AIC_now = sarima_model
-  }
-  if (sarima_model_AIC_now < sarima_model_AIC) {
-    sarima_model_AIC = sarima_model_AIC_now
-    best_model = sarima_model
-  }
-}
+# sarima_model_AIC = Inf
+# for (p in c(0,1,2,3,4)) for (q in c(0,1,2,3,4)) for (P in c(0,1,2,3,4)) for (Q in c(0,1,2,3,4)) {
+#   sarima_model = tryCatch(sarima(xdata = skp, p, d=0, q, P, D=0, Q, S = 7, details = FALSE, Model = F), error = function(e) Inf)
+#   if (is.recursive(sarima_model) == TRUE) {
+#     sarima_model_AIC_now = sarima_model$AIC
+#   }
+#   if (is.recursive(sarima_model) == FALSE) {
+#     sarima_model_AIC_now = sarima_model
+#   }
+#   if (sarima_model_AIC_now < sarima_model_AIC) {
+#     sarima_model_AIC = sarima_model_AIC_now
+#     best_model = sarima_model
+#   }
+# }
 ### Bedste model if?lge AIC.
-best_model$fit
+# best_model$fit
 
 ### Bedste modeller if?lge AIC
 sarmaskp <- sarima(xdata = skp, 3, 0, 3, 2, 0, 2, S = 7, details = FALSE, Model = F)
@@ -104,7 +104,7 @@ infocrit <- VARselect(vardat, lag.max = 25, type = "none")
 infocrit 
 
 ### Estimer model
-varest <- VAR(vardat, p = 5, type = "none", season = NULL, exogen = NULL)
+varest <- VAR(vardat, p = 8, type = "none", season = NULL, exogen = NULL)
 summary(varest)
 
 ### Diagnostiske tests
