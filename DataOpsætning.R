@@ -1,8 +1,8 @@
 setwd("C:/Users/madsu/Desktop/P6/Data")
 
-library(readxl) #indlæs excel
+library(readxl) #indl?s excel
 library(dplyr)
-library(tseries) # til tidsrækker
+library(tseries) # til tidsr?kker
 # Data for priser --------------------------------------------------------------------
 
 ###2020
@@ -103,7 +103,7 @@ n.obs.oos <- length(datoOOS-1)
 
 ### Hverdag
 wkd = rep(c(1,1,1,1,0,0,1), length.out = length(DK1_clean))
-### Helligdage sættes som weekend.
+### Helligdage s?ttes som weekend.
 wkd[c(1,    83,   87,   88,   90,   91,   116,  129,  139,  140,  359,  360,  # 2013
       366,  468,  472,  473,  475,  476,  501,  514,  524,  525,  724,  725,  # 2014
       731,  818,  822,  823,  825,  826,  851,  864,  874,  875,  1089, 1090, # 2015
