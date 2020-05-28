@@ -1,4 +1,4 @@
-setwd("C:/Users/madsu/Desktop/P6/Data")
+setwd("C:/Users/madsu/Desktop/Bacheler-/Data")
 
 library(readxl) #indl?s excel
 library(dplyr)
